@@ -1,5 +1,25 @@
 function balancingParentheses(string) {
-  // type your code here
+  let count = 0
+  let found = false
+  
+  for (let i = 0; i< string.length; i++) {
+      if (string[i] === '(') {
+        found = true
+      }
+      if (found) {
+         if (string[i] === '(') {
+          count += 1
+         } else if (string[i] === ')') {
+          count -= 1
+         }
+      } else {
+        if (string[i] === ')') {
+          count += 1
+        }
+      }
+  }
+
+  return Math.abs(count)
 }
 
 if (require.main === module) {
